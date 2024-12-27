@@ -1,6 +1,21 @@
 function openMaterialWindow(material) {
     const newWindow = window.open('', '_blank');
-    newWindow.document.write('<html><head><title>' + material.charAt(0).toUpperCase() + material.slice(1) + ' Products</title></head><body><h1>Loading ' + material.charAt(0).toUpperCase() + material.slice(1) + ' Products...</h1><div id="product-container"></div></body></html>');
+    const htmlContent = `
+        <html>
+            <head>
+                <title>${material.charAt(0).toUpperCase() + material.slice(1)} Products</title>
+                <link rel="stylesheet" type="text/css" href="./src/css/material.css">
+            </head>
+            <body>
+                <h1>Loading ${material.charAt(0).toUpperCase() + material.slice(1)} Products...</h1>
+                <div id="product-container"></div>
+            </body>
+        </html>
+    `;
+    newWindow.document.write(htmlContent);
+
+    console.log(document.getElementsByTagName("link"));
+    
     getProductData(material, newWindow);
 }
 
@@ -22,17 +37,28 @@ function displayProducts(products, newWindow) {
     const productContainer = newWindow.document.getElementById("product-container");
     productContainer.innerHTML = '';
     products.forEach(product => {
+
         const productDiv = newWindow.document.createElement('div');
+
         productDiv.classList.add('product');
+
         productDiv.innerHTML = `
-            <h2>${product.productName}</h2>
-            <p>Price: $${product.price}</p>
-            <p>Quantity: ${product.quantity}</p>
-            <div>
-                <strong>Images:</strong>
-                <div class="product-images">
-                    ${product.productImage.map(img => `<img src="${img}" alt="${product.productName}" class="product-img">`).join("")}
+
+            <div class="card">
+                <div class="card-header">    
+                    <img src='${product.productImage[0]}' class="product-img">
                 </div>
+                <div class="card-body">    
+                    <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
+                    <p>${product.description}</p>    
+                    <p>Quantity: ${product.quantity}</p>
+                </div>
+                
+                <div class="card-footer">
+                    <button>Add to cart</button>
+                </dib>
+                    
+                <h2>${product.productName}</h2>
             </div>
         `;
         productContainer.appendChild(productDiv);
