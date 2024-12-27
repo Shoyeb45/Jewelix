@@ -412,6 +412,9 @@ footer {
         flex-direction: column;
     }
 
+    #top-right{
+        width: 100%;
+    }
     #top-left{
         width: 100%;
     }
@@ -424,7 +427,7 @@ footer {
 
     #bottom-left{
         width: 100%;
-        height: 310px;
+        height: 410px;
         border-radius: 20px;
     }
 
@@ -481,9 +484,10 @@ footer {
     #top-right{
         margin-top: 15px;
         width: 100%;
-        height: 240px;
-        border: 10px black solid;
+        height: 400px;
+      
         border-radius: 20px;
+
        
     }
     #bottom{
@@ -493,7 +497,7 @@ footer {
 
     #bottom-left{
         width: 100%;
-        height: 310px;
+        height: 410px;
         border-radius: 20px;
         
     }
@@ -570,8 +574,10 @@ footer {
       font-size: 16px;
     }
   }
+
+
   
-<<<<<<< HEAD
+  
 
   .materials-items li button{
     color: #825700;
@@ -636,31 +642,9 @@ footer {
   .bottom-left{
     border-radius: 20px;
   }
+
+
+  .numbertext{
+    border-radius: 30px;
+  }
   
-=======
-  .elem {
-    padding: 1.2vh 0;
-    border-top: 0.2vh solid black; /* changed from px to vh */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.elem button {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-
-.elem i {
-    opacity: 0;
-}
-
-.elem:hover i {
-    opacity: 1;
-}
-
-.elem:hover button {
-    text-decoration: underline;
-}
->>>>>>> 1516029c0160c49083ed4c396f25a08bc9f183df
