@@ -9,3 +9,9 @@ const categorySchema = mongoose.Schema({
 
 
 export const Category = mongoose.model("Category", categorySchema);
+
+export const addCategory = async function(cate) {
+    return (await Category.create({
+        category: cate
+    }));
+};

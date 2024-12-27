@@ -1,0 +1,183 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #7373B9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation links styling */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Search bar styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 200px;
+    margin-left: 5px;
+}
+
+/* Icons container (e.g., Cart, User Profile, etc.) */
+.icon-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.icon-container a:hover {
+    color: #FFD700;
+}
+
+/* Menu Button for mobile screens */
+.menu-button {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Sidebar styling (for mobile view) */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #7373B9;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar ul li a:hover {
+    color: #FFD700;
+}
+
+/* Close Button for Sidebar */
+.close-button {
+    align-self: flex-end;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebar .search-container {
+    margin-bottom: 20px;
+}
+
+/* Mobile-specific search container */
+.search-containerM {
+    display: none; /* Initially hidden */
+    background-color: #7373B9;
+    padding: 10px;
+    text-align: center;
+}
+
+.search-containerM input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    /* For small screens, show the mobile search bar */
+    .search-containerM {
+        display: block; /* Display search bar */
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .icon-container {
+        width: 100%;
+        justify-content: center;
+        order: 3;
+    }
+}
+
+/* Icon color for search */
+.bi-search {
+    color: rgb(107, 103, 103);
+}
