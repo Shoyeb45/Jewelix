@@ -571,7 +571,6 @@ footer {
     }
   }
   
-<<<<<<< HEAD
 
   .materials-items li button{
     color: #825700;
@@ -637,30 +636,3 @@ footer {
     border-radius: 20px;
   }
   
-=======
-  .elem {
-    padding: 1.2vh 0;
-    border-top: 0.2vh solid black; /* changed from px to vh */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.elem button {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-
-.elem i {
-    opacity: 0;
-}
-
-.elem:hover i {
-    opacity: 1;
-}
-
-.elem:hover button {
-    text-decoration: underline;
-}
->>>>>>> 1516029c0160c49083ed4c396f25a08bc9f183df
