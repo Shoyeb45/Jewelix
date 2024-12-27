@@ -1,20 +1,20 @@
+/* Global Reset */
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background-color: black;
+    background-color: #fce5c4fd;
+    color: #96681eeb;
+    font-family: 'Poppins', sans-serif;
 }
 
 #background {
-    /* width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%; */
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .background .shape {
@@ -25,59 +25,58 @@ body {
 }
 
 .shape:first-child {
-    background: linear-gradient(#1845ad, #23a2f6);
-    left: 400px;
-    top: 20px;
+    background: linear-gradient(#96681eeb, #f7ead700);
+    left: 10%;
+    top: 5%;
 }
 
 .shape:last-child {
-    background: linear-gradient(#ff512f, #f09819);
-    right: 200px;
-    bottom: -120px;
+    background: linear-gradient(#774a00eb, #f3c785a0);
+    right: 10%;
+    bottom: -5%;
 }
 
 form {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.08);
+    color: #96681eeb;
+    background-color: rgba(204, 181, 117, 0.69);
     backdrop-filter: blur(10px);
-    height: 520px;
-    width: 400px;
-    left: 40%;
-    top: 20%;
-    position: absolute;
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 40px rgba(8, 7, 16, 0.783);
     padding: 50px 35px;
+  
 }
 
 form * {
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    color: #4f3306eb;
     letter-spacing: 0.6px;
     outline: none;
     border: none;
 }
 
 form h3 {
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 500;
     line-height: 50px;
     text-align: center;
+    font-weight: bold;
 }
 
 label {
     display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 input {
     display: block;
-    height: 50px;
+    height: 45px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: rgba(255, 255, 255, 0.671);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
@@ -86,47 +85,46 @@ input {
 }
 
 button {
-    color: black;
+    color: rgb(129, 76, 3);
     height: 50px;
     width: 100%;
-    display: block;
-    margin-top: 40px;
+    background-color: white;
+    margin-top: 30px;
     border-radius: 3px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bolder;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #935601;
+    color: white;
 }
 
 .social {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
-    justify-content: space-between; /* Ensure space between buttons */
-    width: 100%; /* Make social section full width */
+    justify-content: space-between;
+    width: 100%;
 }
 
 .social div {
-    display: inline-block;
     height: 40px;
-    width: 48%; /* Adjust width to fit buttons within form */
+    width: 48%;
     background-color: rgba(255, 255, 255, 0.07);
-    padding: 5px 10px 10px 5px;
-    margin-right: 20px;
     border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-#go {
-    justify-content: center;
-    align-items: center;
+.social div:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-#you {
-    justify-content: center;
-    align-items: center;
-}
-
-/* Additional styling for Forgot Password and Create Account */
 .forgot-password, .create-account {
     text-align: center;
     margin-top: 20px;
@@ -140,4 +138,68 @@ button {
 
 .forgot-password a:hover, .create-account a:hover {
     text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        padding: 30px 20px;
+    }
+
+    form h3 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .social div {
+        height: 35px;
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .background .shape {
+        height: 150px;
+        width: 150px;
+    }
+
+    form {
+        padding: 20px 15px;
+    }
+
+    form h3 {
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 11px;
+    }
+
+    button {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .social div {
+        height: 30px;
+        width: 48%;
+    }
 }
