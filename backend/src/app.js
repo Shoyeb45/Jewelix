@@ -55,5 +55,6 @@ app.use("/api/v1/user", userRouter);
 
 // product admin api
 app.use("/api/v1/product", productRouter);
+app.use("/api/v1/product", productRouter);
 
 export default app;
