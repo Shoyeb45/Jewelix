@@ -340,3 +340,7 @@ footer {
    
     height: 510px;
 }
+
+#main{
+    height: auto;
+}
