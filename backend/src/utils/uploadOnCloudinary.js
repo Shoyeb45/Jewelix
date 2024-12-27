@@ -13,23 +13,34 @@ cloudinary.config({
  * @param {*} localFilePath      Local path of the file which needs to be uploaded  
  * @returns                      A resoponse object
  */
-const uploadOnCloudinary = async function(localFilePath) {
+const uploadOnCloudinary = async function (localFilePath, originalFileName) {
     try {
-        if (!localFilePath) {
+        if (!localFilePath || !originalFileName) {
             return null;
         }
-        // We are uploading the file from local
+
+        // Extract the name without extension
+        const fileNameWithoutExt = originalFileName.split('.').slice(0, -1).join('.');
+        
+        // Extract the file extension
+        const fileExtension = originalFileName.split('.').pop();
+
+        // Upload the file to Cloudinary with the original name
         const response = await cloudinary.uploader.upload(localFilePath, {
-            resource_type: "auto" // It will auto identify the type of file
+            resource_type: "auto", // Automatically detect file type
+            public_id: fileNameWithoutExt, // Set the original file name as the public_id
+            format: fileExtension // Ensure the correct format is retained
         });
-        
-        // Now file has been uploaded.
-        
-        // Now delete the file (or unlink)
+
+        // Delete the temporary local file
         fs.unlinkSync(localFilePath);
+
         return response;
     } catch (error) {
-        fs.unlinkSync(localFilePath) // remove the locally saved temporary file as the upload operation got failed
+        // Delete the temporary local file in case of an error
+        if (fs.existsSync(localFilePath)) {
+            fs.unlinkSync(localFilePath);
+        }
         return null;
     }
 };
