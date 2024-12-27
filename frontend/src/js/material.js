@@ -43,15 +43,22 @@ function displayProducts(products, newWindow) {
         productDiv.classList.add('product');
 
         productDiv.innerHTML = `
-            <h2>${product.productName}</h2>
-            <p>Price: $${product.price}</p>
-            <p>Quantity: ${product.quantity}</p>
-            <div>
-                <strong>Images:</strong>
-                <div class="product-images">
-                    
+
+            <div class="card">
+                <div class="card-header">    
                     <img src='${product.productImage[0]}' class="product-img">
                 </div>
+                <div class="card-body">    
+                    <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
+                    <p>${product.description}</p>    
+                    <p>Quantity: ${product.quantity}</p>
+                </div>
+                
+                <div class="card-footer">
+                    <button>Add to cart</button>
+                </dib>
+                    
+                <h2>${product.productName}</h2>
             </div>
         `;
         productContainer.appendChild(productDiv);
