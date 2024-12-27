@@ -1,8 +1,6 @@
 future plans :
 1. see familiar
 
-
-
 Problem:
     Many people desire to wear high-quality, stylish jewelry made from precious materials like gold, silver, platinum, and diamonds, but the high costs of these materials make them unaffordable for a large portion of the population. As a result, they are unable to enjoy the luxury of jewelry that suits their taste and lifestyle. There is a growing demand for affordable, high-quality alternatives that provide the same aesthetic appeal and durability as traditional precious metals and stones, but at a fraction of the price.
 
