@@ -49,3 +49,50 @@ window.onload = function() {
     autoSlide("material-slideshow");
     autoSlide("categories-slideshow");
 };
+
+
+
+
+let currentIndex = 1;
+        showSlide(currentIndex);
+
+        // Function to navigate through slides (next/previous)
+        function moveSlide(step) {
+            showSlide(currentIndex += step);
+        }
+
+        // Function to show the selected slide by index
+        function jumpToSlide(index) {
+            showSlide(currentIndex = index);
+        }
+
+        // Function to display the current slide and hide others
+        function showSlide(index) {
+            let i;
+            let frames = document.getElementsByClassName("slideshow-frame");
+            let dots = document.getElementsByClassName("slideshow-dot");
+
+            if (index > frames.length) {currentIndex = 1}
+            if (index < 1) {currentIndex = frames.length}
+
+            // Hide all slides
+            for (i = 0; i < frames.length; i++) {
+                frames[i].style.display = "none";
+                frames[i].style.transform = "translateX(100%)"; // Reset position
+            }
+
+            // Remove current class from all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" current", "");
+            }
+
+            // Display the current slide with a slide-in transition from the right
+            frames[currentIndex-1].style.display = "block";
+            frames[currentIndex-1].style.transform = "translateX(0)";
+            dots[currentIndex-1].className += " current";
+        }
+
+        // Automatically change the slide every 5 seconds
+        setInterval(function() {
+            moveSlide(1);
+        }, 3000); // Change slide every 3 seconds (3000 milliseconds)
