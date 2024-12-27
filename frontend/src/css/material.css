@@ -14,7 +14,7 @@ h1 {
     justify-content: center;
     gap: 20px;
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 1500px;
     padding: 20px;
 }
 
@@ -55,8 +55,8 @@ h1 {
 }
 
 .product-img {
-    width: 70px;
-    height: 70px;
+    width: 280px;
+    height: 260px;
     object-fit: cover;
     border-radius: 5px;
     border: 1px solid #ddd;

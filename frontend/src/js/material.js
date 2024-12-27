@@ -19,6 +19,15 @@ function openMaterialWindow(material) {
     getProductData(material, newWindow);
 }
 
+function truncateDescription(description, wordLimit) {
+    const words = description.split(' ');
+    if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return description;
+}
+
+
 async function getProductData(material, newWindow) {
     try {
         const response = await fetch(`http://localhost:4000/api/v1/product/getProduct?typeOfMaterial=${material}`);
@@ -46,14 +55,13 @@ function displayProducts(products, newWindow) {
 
             <div class="card">
                 <div class="card-header">    
-                    <img src='${product.productImage[0]}' class="product-img">
+                    <img src='${product.productImage[1]}' class="product-img">
                 </div>
                 <div class="card-body">    
                     <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
-                    <p>${product.description}</p>    
-                    <p>Quantity: ${product.quantity}</p>
+                    <p>${truncateDescription(product.description, 30)}</p>    
                 </div>
-                
+
                 <div class="card-footer">
                     <button>Add to cart</button>
                 </dib>
