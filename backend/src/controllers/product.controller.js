@@ -54,7 +54,7 @@ export const addProduct = asyncHandler(async (req, res) => {
 });
 
 
-export const getProduct = asyncHandler ( async (req, res) => {
+export const getProductOfMaterial = asyncHandler ( async (req, res) => {
     const material = req.query.typeOfMaterial;
     console.log(material);
     
@@ -78,7 +78,8 @@ export const getProduct = asyncHandler ( async (req, res) => {
 
 export const getProductOfCategory = asyncHandler ( async (req, res) => {
     const category = req.query.category;
-    console.log(typeof(category));
+    console.log("category function");
+    
     
     if (!category) {
         return res.status(400).send({ error: 'Category is required' });
