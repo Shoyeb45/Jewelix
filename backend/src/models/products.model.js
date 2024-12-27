@@ -13,15 +13,21 @@ const productSchema = mongoose.Schema({
         type: Number,
         requried: true,
     },
-    productImage: {
-        type: String,
-    },
+    productImage: [
+        {
+            type: String
+        }
+    ],
     quantity: {
         type: Number,
         required: true,
         default: 0,
+    },
+    typeOfMaterial: {
+        type: String,
+        enum: ["gold", "silver", "labGrownDiamond", "pearls", "stone"]
     }
-
 }, {timestamps: true});
 
 export const Product = mongoose.model("Product", productSchema);
+

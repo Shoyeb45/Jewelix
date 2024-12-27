@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -14,9 +14,7 @@
 
 <body>
 
-    <header>
-        <!-- Your header code remains unchanged -->
-    </header>
+    
 
     <main id="main">
         <header>
@@ -70,7 +68,41 @@
         </ul>
       </div>
     </header>
-        <section id="two">
+    
+    <section class="first">
+      <!-- Slideshow container -->
+      <div class="slideshow-wrapper">
+
+          <!-- Slides -->
+          <div class="slideshow-frame">
+              <img src="../frontend/public/images/banner1.png" style="width:100%" alt="Image 1">
+          </div>
+
+          <div class="slideshow-frame">
+              <img src="../frontend/public/images/banner2.jpg" style="width:100%" alt="Image 2">
+          </div>
+
+          <div class="slideshow-frame">
+              <img src="../frontend/public/images/banner3.jpg" style="width:100%" alt="Image 3">
+          </div>
+
+          <!-- Navigation buttons -->
+          <a class="slideshow-prev" onclick="moveSlide(-1)">&#10094;</a>
+          <a class="slideshow-next" onclick="moveSlide(1)">&#10095;</a>
+      </div>
+
+      <br>
+      <!-- Slide indicators (dots) -->
+      <div style="text-align:center">
+          <span class="slideshow-dot" onclick="jumpToSlide(1)"></span>
+          <span class="slideshow-dot" onclick="jumpToSlide(2)"></span>
+          <span class="slideshow-dot" onclick="jumpToSlide(3)"></span>
+      </div>
+  </section>
+  
+
+
+    <section id="two">
             <div id="top">
                 <div id="top-left">
                     <div class="slideshow-container" id="material-slideshow">
@@ -118,6 +150,13 @@
                         <span class="dot" onclick="currentSlide(5, 'material-slideshow')"></span>
                     </div>
                 </div>
+                <!-- <div class="material-container">
+                    <button onclick="fetchMaterialData('gold')">Gold</button>
+                    <button onclick="fetchMaterialData('silver')">Silver</button>
+                    <button onclick="fetchMaterialData('labGrownDiamond')">Lab-Grown Diamond</button>
+                    <button onclick="fetchMaterialData('pearls')">Pearls</button>
+                    <button onclick="fetchMaterialData('stones')">Stones</button>
+                </div> -->
                 <div id="top-right">
                     <h1 class="materials">MATERIALS</h1>
                     <ul class="materials-items">
@@ -131,9 +170,15 @@
             </div>
             <div id="bottom">
                 <div id="bottom-left">
+<<<<<<< HEAD
                     <h1 class="categories">CATEGORIES</h1>
                     <ul class="categories-items">
                         <li>Rings</li>
+=======
+                    <h1 class="Categories">CATEGORIES</h1>
+                    <ul>
+                        <li><a href="./src/static/rings.html"><button id="rings">Rings</button></a></li>
+>>>>>>> 7dfb5108213d79a2019a76544de58f4cb3111841
                         <li>Bracelets</li>
                         <li>Necklaces</li>
                         <li>Earrings</li>
@@ -231,5 +276,6 @@
 
     <script src="src/js/script.js"></script>
     <script src="src/js/header.js"></script>
+    <script src="src/js/productByCategory.js"></script>
 </body>
 </html>
