@@ -230,4 +230,11 @@ ul {
 .first{
    
     height: 510px;
+   
+}
+
+
+#main{
+   
+    height: auto;
 }
