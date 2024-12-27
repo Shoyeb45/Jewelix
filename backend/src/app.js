@@ -41,10 +41,19 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./../../frontend/index.html"));
 });
-// ------------ Routes -----------------
-import userRouter from "./routes/user.route.js"
 
+
+
+
+
+// ------------ Routes -----------------
+import userRouter from "./routes/user.route.js";
+import productRouter from "./routes/product.route.js";
+
+// User api
 app.use("/api/v1/user", userRouter);
 
+// product admin api
+app.use("/api/v1/product", productRouter);
 
 export default app;
