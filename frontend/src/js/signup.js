@@ -1,0 +1,1 @@
+const signUpButton = document.getElementsByName();

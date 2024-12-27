@@ -47,7 +47,28 @@ export const addProduct = asyncHandler( async (req, res) => {
 });
 
 export const getProduct = asyncHandler ( async (req, res) => {
-    const category = req.query.typeOfMaterial;
+    const material = req.query.typeOfMaterial;
+    
+    if (!material) {
+        return res.status(400).send({ error: 'Material is required' });
+    }
+
+    try {
+        console.log(material);
+        
+        const products = await Product.find({ typeOfMaterial: material });
+        console.log(products);
+        
+        res.status(201).json(products);
+    } catch (error) {
+        console.error('Database query error:', error);
+        res.status(500).send({ error: 'Server error' });
+    }
+});
+
+
+export const getProductOfCategory = asyncHandler ( async (req, res) => {
+    const category = req.query.category;
     console.log(typeof(category));
     
     if (!category) {
@@ -55,9 +76,7 @@ export const getProduct = asyncHandler ( async (req, res) => {
     }
 
     try {
-        console.log(category);
-        
-        const products = await Product.find({ typeOfMaterial: category });
+        const products = await Product.find({ category: category });
         console.log(products);
         
         res.status(201).json(products);
