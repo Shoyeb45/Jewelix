@@ -9,6 +9,7 @@ body {
 }
 
 
+
 .twond{
     
     height: 500px;
@@ -104,6 +105,10 @@ ul {
     left: 0;
 }
 
+.materials-items button {
+    border: none;
+    background: none;
+}
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
