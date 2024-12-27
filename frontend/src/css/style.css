@@ -118,7 +118,7 @@ ul {
     left: 0;
 }
 
-.materials-items button {
+.materials-items button, .categories-items button {
     border: none;
     background: none;
 }

@@ -37,11 +37,10 @@ const registerUser = asyncHandler( async (req, res) => {
     // console.log(req);
 
     console.log(req.body);
-    const {userName, email, password, fullName, address, contactNumber} = req.body;
-    
-    
+    const {userName, email, password, fullName, contactNumber} = req.body;
+      
     const existedUser = await User.findOne({
-        $or: [{ userName }, { email }]
+        $or: [{ userName: userName.toLowerCase() }, { email }]
     })
 
 
@@ -55,8 +54,7 @@ const registerUser = asyncHandler( async (req, res) => {
         email,
         password,
         userName: userName.toLowerCase(),
-        contactNumber,
-        address
+        contactNumber
     });
 
     // Check if the user is really selected

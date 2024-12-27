@@ -4,7 +4,7 @@ function openMaterialWindow(material) {
         <html>
             <head>
                 <title>${material.charAt(0).toUpperCase() + material.slice(1)} Products</title>
-                <link rel="stylesheet" type="text/css" href="./src/css/material.css">
+                <link rel="stylesheet" type="text/css" href="./src/css/category.css">
             </head>
             <body>
                 <h1>Loading ${material.charAt(0).toUpperCase() + material.slice(1)} Products...</h1>
@@ -19,18 +19,9 @@ function openMaterialWindow(material) {
     getProductData(material, newWindow);
 }
 
-function truncateDescription(description, wordLimit) {
-    const words = description.split(' ');
-    if (words.length > wordLimit) {
-        return words.slice(0, wordLimit).join(' ') + '...';
-    }
-    return description;
-}
-
-
 async function getProductData(material, newWindow) {
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/product/getProduct?typeOfMaterial=${material}`);
+        const response = await fetch(`http://localhost:4000/api/v1/product/getProductOfCategory?category=${material}`);
         const productData = await response.json();
         if (productData && productData.length > 0) {
             displayProducts(productData, newWindow);
@@ -55,13 +46,13 @@ function displayProducts(products, newWindow) {
 
             <div class="card">
                 <div class="card-header">    
-                    <img src='${product.productImage[1]}' class="product-img">
+                    <img src='${product.productImage[0]}' class="product-img">
                 </div>
                 <div class="card-body">    
                     <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
-                    <p>${truncateDescription(product.description, 30)}</p>    
+                    <p>${product.description}</p>    
                 </div>
-
+                
                 <div class="card-footer">
                     <button>Add to cart</button>
                 </dib>
@@ -73,7 +64,7 @@ function displayProducts(products, newWindow) {
     });
 }
 
-document.querySelectorAll('.materials-items').forEach(button => {
+document.querySelectorAll('.categories-items').forEach(button => {
     button.addEventListener('click', (event) => {
         const selectedMaterial = event.target.getAttribute('data-material');
         openMaterialWindow(selectedMaterial);
