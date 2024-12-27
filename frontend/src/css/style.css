@@ -52,6 +52,7 @@ nav{
 
 #top-left {
     width: 70%;
+    
 }
 
 #top-right {
@@ -60,8 +61,11 @@ nav{
     background-color: #f1daa3;
     padding: 10px;
     color: #96681eeb;
-   
+    border: 2px rgb(144, 73, 1) solid;
+    border-radius: 30px;
 }
+
+
 
 #bottom {
     height: 40%;
@@ -75,6 +79,8 @@ nav{
     height: 400px;
     background-color: #f1daa3;
     color: #96681eeb;
+    border-radius: 30px;
+    border: 2px rgb(144, 73, 1) solid;
 
     
 }
@@ -410,12 +416,7 @@ footer {
         width: 100%;
     }
 
-    #top-right{
-        margin-top: 15px;
-        width: 100%;
-        height: 240px;
-        border-radius: 20px;
-    }
+   
     #bottom{
         display: flex;
         flex-direction: column;
@@ -475,15 +476,15 @@ footer {
         flex-direction: column;
     }
 
-    #top-left{
-        width: 100%;
-    }
+   
 
     #top-right{
         margin-top: 15px;
         width: 100%;
         height: 240px;
+        border: 10px black solid;
         border-radius: 20px;
+       
     }
     #bottom{
         display: flex;
@@ -494,6 +495,7 @@ footer {
         width: 100%;
         height: 310px;
         border-radius: 20px;
+        
     }
 
     #bottom-right{
@@ -574,22 +576,63 @@ footer {
     color: #825700;
     font-size: 18px;
     font-weight: bold;
+   
 
    
   }
 
   .materials-items li button:hover{
     background-color: #faefd5;
-    border-radius: 12px;
-    
-    padding: 10px;
+    border-radius: 13px;
+   
   }
 
   .materials-items{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+   
+   margin-top: -22px;
     
-    height: 320px;
+    height: 300px;
     
   }
+
+  .materials{
+    color: #553902;
+  }
+
+.categories{
+    color: #553902;
+}
+
+.categories-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+   margin-top: -22px;
+  
+   height: 300px;
+
+}
+
+.categories-items li button{
+    color: #825700;
+    font-size: 18px;
+    font-weight: bold;
+   
+
+   
+  }
+
+  .categories-items li button:hover{
+    background-color: #faefd5;
+    border-radius: 13px;
+   
+  }
+
+  .bottom-left{
+    border-radius: 20px;
+  }
+  
