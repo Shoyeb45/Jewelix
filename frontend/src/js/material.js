@@ -39,7 +39,7 @@ function displayProducts(products, newWindow) {
     });
 }
 
-document.querySelectorAll('.material-btn').forEach(button => {
+document.querySelectorAll('.materials-items').forEach(button => {
     button.addEventListener('click', (event) => {
         const selectedMaterial = event.target.getAttribute('data-material');
         openMaterialWindow(selectedMaterial);

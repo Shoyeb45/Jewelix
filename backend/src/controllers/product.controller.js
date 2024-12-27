@@ -28,11 +28,11 @@ export const addProduct = asyncHandler( async (req, res) => {
         
         console.log(imageUrls);
         
-        const categoryId = await Category.findOne({category});
+        // const categoryId = await Category.findOne({category});
 
         const product = await Product.create({
             productName,
-            category: categoryId,
+            category,
             price,
             productImage: imageUrls,
             quantity,
@@ -46,11 +46,19 @@ export const addProduct = asyncHandler( async (req, res) => {
 });
 
 export const getProduct = asyncHandler ( async (req, res) => {
-    try {        
-        const products = await Product.find(); // Fetch all products
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(products);
+    const category = req.query.typeOfMaterial;
+    console.log(typeof(category));
+    
+    if (!category) {
+        return res.status(400).send({ error: 'Category is required' });
+    }
+
+    try {
+        console.log("yaha tak");
+        const products = await Product.find({ category: category });
+        res.status(201).json(products);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error });
+        console.error('Database query error:', error);
+        res.status(500).send({ error: 'Server error' });
     }
 });
