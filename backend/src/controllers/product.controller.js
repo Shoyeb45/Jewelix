@@ -56,6 +56,7 @@ export const addProduct = asyncHandler(async (req, res) => {
 
 export const getProduct = asyncHandler ( async (req, res) => {
     const material = req.query.typeOfMaterial;
+    console.log(material);
     
     if (!material) {
         return res.status(400).send({ error: 'Material is required' });
