@@ -19,48 +19,47 @@ body {
 
 #two {
     height: 100%;
-    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 #top, #bottom {
     display: flex;
     width: 100%;
+    padding: 10px;
 }
 
 #top {
-    height: 65%;
+    height: 60%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
 }
 
 #top-left {
-    width: 65%;
+    width: 60%;
 }
 
 #top-right {
-    width: 35%;
+    width: 40%;
     background-color: aqua;
     padding: 10px;
 }
 
 #bottom {
-    height: 35%;
+    height: 40%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
 }
 
 #bottom-left {
-    width: 35%;
+    width: 40%;
     background-color: aqua;
-    padding: 10px;
 }
 
 #bottom-right {
-    width: 65%;
+    width: 60%;
 }
 
 ul {
@@ -68,11 +67,3 @@ ul {
     padding: 0;
 }
 
-h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-li {
-    margin-bottom: 5px;
-}
