@@ -50,12 +50,13 @@ function displayProducts(products, newWindow) {
         const productDiv = newWindow.document.createElement('div');
 
         productDiv.classList.add('product');
+       
 
         productDiv.innerHTML = `
 
             <div class="card">
                 <div class="card-header">    
-                    <img src='${product.productImage[1]}' class="product-img">
+                    <img src="${product.productImage[0]}" class="product-img">
                 </div>
                 <div class="card-body">    
                     <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
