@@ -13,23 +13,29 @@ export const sendData = asyncHandler( async (req, res) => {
     }
 });
 
-
-export const addProduct = asyncHandler( async (req, res) => {
+export const addProduct = asyncHandler(async (req, res) => {
     try {
         console.log("here");
-        
-        const { productName, category, price, productImage, quantity, typeOfMaterial, description } = req.body;
-        const filePaths = req.files.map((file) => file.path);
+
+        const { productName, category, price, quantity, typeOfMaterial, description } = req.body;
+
+        // Process uploaded files
+        const filePaths = req.files.map((file) => file.path); // Local file paths
+        const originalNames = req.files.map((file) => file.originalname); // Original file names
+
+        // Upload files to Cloudinary and maintain original names
         const productImageUrls = await Promise.all(
-            filePaths.map((filePath) => uploadOnCloudinary(filePath))
+            filePaths.map((filePath, index) =>
+                uploadOnCloudinary(filePath, originalNames[index]) // Pass the file path and original name
+            )
         );
 
+        // Extract the URLs from the Cloudinary responses
         const imageUrls = productImageUrls.map((image) => image.url);
-        
-        console.log(imageUrls);
-        
-        // const categoryId = await Category.findOne({category});
 
+        console.log(imageUrls);
+
+        // Save the product details in the database
         const product = await Product.create({
             productName,
             category,
@@ -37,14 +43,16 @@ export const addProduct = asyncHandler( async (req, res) => {
             productImage: imageUrls,
             quantity,
             typeOfMaterial,
-            description
+            description,
         });
 
         res.status(201).json(new ApiResponse(201, "Product uploaded successfully"));
     } catch (error) {
+        console.error(error);
         throw new ApiError(501, "Could not add the product into product catalogue");
     }
 });
+
 
 export const getProduct = asyncHandler ( async (req, res) => {
     const material = req.query.typeOfMaterial;

@@ -41,12 +41,20 @@ function displayProducts(products, newWindow) {
         const productDiv = newWindow.document.createElement('div');
 
         productDiv.classList.add('product');
+        let productImageUrl = "";
+        for (let i = 0; i < 3; i++) {
+            const fileName = product.productImage[i].split('/').pop();
+            if (fileName === "1") {
+                productImageUrl = product.productImage[i];
+                break;
+            }
+        }
 
         productDiv.innerHTML = `
 
             <div class="card">
                 <div class="card-header">    
-                    <img src='${product.productImage[0]}' class="product-img">
+                    <img src='${productImageUrl}' class="product-img">
                 </div>
                 <div class="card-body">    
                     <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
