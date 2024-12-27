@@ -291,7 +291,7 @@ footer {
     position: absolute;
     top: 50%;
     width: auto;
-    height: 55vh;
+    height: 85vh;
     margin-top: -22px;
     padding: 16px;
     color: rgba(125, 125, 125, 0.861);
@@ -343,10 +343,147 @@ footer {
 }
 
 
-#main{
-   
-}
+
 
 #main{
     height: auto;
+   
 }
+
+
+
+@media(max-width: 670px){
+   
+    .first{
+        height: 240px;
+    }
+
+    .slideshow-prev, .slideshow-next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        height: 72vh;
+        margin-top: -22px;
+        padding: 16px;
+        color: rgba(125, 125, 125, 0.861);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #top{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #top-left{
+        width: 100%;
+    }
+
+    #top-right{
+        margin-top: 15px;
+        width: 100%;
+        height: 240px;
+        border-radius: 20px;
+    }
+    #bottom{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #bottom-left{
+        width: 100%;
+        height: 310px;
+        border-radius: 20px;
+    }
+
+    #bottom-right{
+        margin-top: 15px;
+        width: 100%;
+       
+    }
+
+
+}
+
+
+
+@media(max-width: 400px){
+   
+    .first{
+        height:150;
+    
+    }
+
+    .slideshow-prev, .slideshow-next {
+        cursor: pointer;
+        position: absolute;
+        top: 0%;
+        width: auto;
+        height: 20vh;
+        margin-top: 2px;
+        padding: 20px;
+        color: rgba(125, 125, 125, 0.861);
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+        
+    }
+
+    #top{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #top-left{
+        width: 100%;
+    }
+
+    #top-right{
+        margin-top: 15px;
+        width: 100%;
+        height: 240px;
+        border-radius: 20px;
+    }
+    #bottom{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #bottom-left{
+        width: 100%;
+        height: 310px;
+        border-radius: 20px;
+    }
+
+    #bottom-right{
+        margin-top: 15px;
+        width: 100%;
+       
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
