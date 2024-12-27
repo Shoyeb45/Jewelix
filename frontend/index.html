@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -148,6 +148,13 @@
                         <span class="dot" onclick="currentSlide(5, 'material-slideshow')"></span>
                     </div>
                 </div>
+                <!-- <div class="material-container">
+                    <button onclick="fetchMaterialData('gold')">Gold</button>
+                    <button onclick="fetchMaterialData('silver')">Silver</button>
+                    <button onclick="fetchMaterialData('labGrownDiamond')">Lab-Grown Diamond</button>
+                    <button onclick="fetchMaterialData('pearls')">Pearls</button>
+                    <button onclick="fetchMaterialData('stones')">Stones</button>
+                </div> -->
                 <div id="top-right">
                     <h1 class="Materials">MATERIALS</h1>
                     <ul class="Materials-items">
@@ -163,7 +170,7 @@
                 <div id="bottom-left">
                     <h1 class="Categories">CATEGORIES</h1>
                     <ul>
-                        <li>Rings</li>
+                        <li><a href="./src/static/rings.html"><button id="rings">Rings</button></a></li>
                         <li>Bracelets</li>
                         <li>Necklaces</li>
                         <li>Earrings</li>
@@ -238,5 +245,6 @@
 
     <script src="src/js/script.js"></script>
     <script src="src/js/header.js"></script>
+    <script src="src/js/productByCategory.js"></script>
 </body>
 </html>
