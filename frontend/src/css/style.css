@@ -569,27 +569,28 @@ footer {
     }
   }
   
-
-  .materials-items li button{
-    color: #825700;
-    font-size: 18px;
-    font-weight: bold;
-
-   
-  }
-
-  .materials-items li button:hover{
-    background-color: #faefd5;
-    border-radius: 12px;
-    
-    padding: 10px;
-  }
-
-  .materials-items{
+  .elem {
+    padding: 1.2vh 0;
+    border-top: 0.2vh solid black; /* changed from px to vh */
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    
-    height: 320px;
-    
-  }
+    justify-content: space-between;
+    align-items: center;
+}
+
+.elem button {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.elem i {
+    opacity: 0;
+}
+
+.elem:hover i {
+    opacity: 1;
+}
+
+.elem:hover button {
+    text-decoration: underline;
+}
