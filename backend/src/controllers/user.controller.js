@@ -1,6 +1,6 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
-import { User } from "../models/user.model.js";
+import { User } from "../models/users.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 
@@ -36,8 +36,9 @@ const generateRefreshAndAccessToken = async (userId) => {
 const registerUser = asyncHandler( async (req, res) => {
     // console.log(req);
 
+    console.log(req.body);
     const {userName, email, password, fullName, address, contactNumber} = req.body;
-
+    
     
     const existedUser = await User.findOne({
         $or: [{ userName }, { email }]
