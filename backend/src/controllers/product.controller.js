@@ -18,7 +18,7 @@ export const addProduct = asyncHandler( async (req, res) => {
     try {
         console.log("here");
         
-        const { productName, category, price, productImage, quantity, typeOfMaterial } = req.body;
+        const { productName, category, price, productImage, quantity, typeOfMaterial, description } = req.body;
         const filePaths = req.files.map((file) => file.path);
         const productImageUrls = await Promise.all(
             filePaths.map((filePath) => uploadOnCloudinary(filePath))
@@ -36,7 +36,8 @@ export const addProduct = asyncHandler( async (req, res) => {
             price,
             productImage: imageUrls,
             quantity,
-            typeOfMaterial
+            typeOfMaterial,
+            description
         });
 
         res.status(201).json(new ApiResponse(201, "Product uploaded successfully"));
@@ -54,8 +55,11 @@ export const getProduct = asyncHandler ( async (req, res) => {
     }
 
     try {
-        console.log("yaha tak");
-        const products = await Product.find({ category: category });
+        console.log(category);
+        
+        const products = await Product.find({ typeOfMaterial: category });
+        console.log(products);
+        
         res.status(201).json(products);
     } catch (error) {
         console.error('Database query error:', error);
