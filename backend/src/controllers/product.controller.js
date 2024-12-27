@@ -18,7 +18,7 @@ export const addProduct = asyncHandler( async (req, res) => {
     try {
         console.log("here");
         
-        const { productName, category, price, productImage, quantity, typeOfMaterial } = req.body;
+        const { productName, category, price, productImage, quantity, typeOfMaterial, description } = req.body;
         const filePaths = req.files.map((file) => file.path);
         const productImageUrls = await Promise.all(
             filePaths.map((filePath) => uploadOnCloudinary(filePath))
@@ -28,15 +28,16 @@ export const addProduct = asyncHandler( async (req, res) => {
         
         console.log(imageUrls);
         
-        const categoryId = await Category.findOne({category});
+        // const categoryId = await Category.findOne({category});
 
         const product = await Product.create({
             productName,
-            category: categoryId,
+            category,
             price,
             productImage: imageUrls,
             quantity,
-            typeOfMaterial
+            typeOfMaterial,
+            description
         });
 
         res.status(201).json(new ApiResponse(201, "Product uploaded successfully"));
@@ -46,11 +47,22 @@ export const addProduct = asyncHandler( async (req, res) => {
 });
 
 export const getProduct = asyncHandler ( async (req, res) => {
-    try {        
-        const products = await Product.find(); // Fetch all products
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(products);
+    const category = req.query.typeOfMaterial;
+    console.log(typeof(category));
+    
+    if (!category) {
+        return res.status(400).send({ error: 'Category is required' });
+    }
+
+    try {
+        console.log(category);
+        
+        const products = await Product.find({ typeOfMaterial: category });
+        console.log(products);
+        
+        res.status(201).json(products);
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error });
+        console.error('Database query error:', error);
+        res.status(500).send({ error: 'Server error' });
     }
 });
