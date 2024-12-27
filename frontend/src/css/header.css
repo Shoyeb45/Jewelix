@@ -11,13 +11,13 @@ body {
 
 /* Navigation Bar */
 nav {
-    background-color: #8c8cd1;
+    background-color: #f1daa3;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: #96681eeb;
 }
 header{
     margin-bottom: 50px;
@@ -36,7 +36,8 @@ header{
 
 .nav-links li a {
     text-decoration: none;
-    color: white;
+    color: #96681eeb;
+   
     font-weight: 600;
     transition: color 0.3s ease;
 }
@@ -62,6 +63,16 @@ header{
     margin-left: 5px;
 }
 
+.search-container input::placeholder{
+    color: #dab06ceb;
+   
+}
+
+.bi-search{
+    display: inline;
+    color: #dab06ceb;
+}
+
 /* Icons container (e.g., Cart, User Profile, etc.) */
 .icon-container {
     display: flex;
@@ -70,7 +81,8 @@ header{
 }
 
 .icon-container a {
-    color: white;
+    color: #96681eeb;
+    
     text-decoration: none;
     font-size: 20px;
     transition: color 0.3s ease;

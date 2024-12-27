@@ -6,6 +6,13 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff8e4;
+    color: #96681eeb;
+   
+}
+
+nav{
+    margin-bottom: -50px;
 }
 
 
@@ -50,20 +57,26 @@ body {
 #top-right {
     width: 30%;
     height: 400px;
-    background-color: aqua;
+    background-color: #f1daa3;
     padding: 10px;
+    color: #96681eeb;
+   
 }
 
 #bottom {
     height: 40%;
     display: flex;
     justify-content: space-between;
+    color: #96681eeb;
 }
 
 #bottom-left {
     width: 30%;
     height: 400px;
-    background-color: aqua;
+    background-color: #f1daa3;
+    color: #96681eeb;
+
+    
 }
 
 #bottom-right {
@@ -190,11 +203,13 @@ ul {
 
 
 footer {
-    background-color: white; /* Set the footer background to white */
+    background-color:#af7f31eb; /* Set the footer background to white */
+    color: white;
 }
 .footerContainer {
     width: 100%;
     padding: 70px 30px 20px;
+    color: white;
 }
 .socialIcons {
     display: flex;
@@ -203,22 +218,22 @@ footer {
 .socialIcons a {
     text-decoration: none;
     padding: 10px;
-    background-color: black; /* Set the background of social icons to black */
+    background-color: white; /* Set the background of social icons to black */
     margin: 10px;
     border-radius: 50%;
 }
 .socialIcons a i {
     font-size: 2em;
-    color: white; /* Set the color of icons to white */
+    color: #825700; /* Set the color of icons to white */
     opacity: 0.9;
 }
 /* Hover effect on social media icon */
 .socialIcons a:hover {
-    background-color: white; /* Set the hover background to white */
+    background-color: #825700; /* Set the hover background to white */
     transition: 0.5s;
 }
 .socialIcons a:hover i {
-    color: black; /* Set the hover color of icons to black */
+    color: white; /* Set the hover color of icons to black */
     transition: 0.5s;
 }
 .footerNav {
@@ -230,10 +245,11 @@ footer {
     list-style-type: none;
 }
 .footerNav ul li a {
-    color: black; /* Set the text color of links to black */
+    color: white; /* Set the text color of links to black */
     margin: 20px;
     text-decoration: none;
     font-size: 1.3em;
+    font-weight: bold;
     opacity: 0.7;
     transition: 0.5s;
 }
@@ -242,11 +258,12 @@ footer {
 }
 .footerBottom {
     background-color: white; /* Set the background of footer bottom to white */
-    padding: 20px;
+    
     text-align: center;
 }
 .footerBottom p {
-    color: black; /* Set text color to black */
+   background-color: #cea668eb;
+    color:#523102eb; /* Set text color to black */
 }
 .designer {
     opacity: 0.7;
@@ -343,7 +360,8 @@ footer {
 
 .first{
    
-    height: 510px;
+    height: 500px;
+   
    
 }
 
@@ -422,9 +440,12 @@ footer {
 
 @media(max-width: 400px){
    
+    nav{
+        margin-bottom: -110px;
+    }
+
     .first{
-        height:150;
-    
+        height: 150px;
     }
 
     .slideshow-prev, .slideshow-next {
@@ -489,6 +510,86 @@ footer {
 
 
 
+/* Offer Banner */
+.offer-banner {
+    width: 100%;
+    height: 80px;
+    background-color:#fff8e4; /* Red background */
+    color: #7e4f03eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden; /* To hide text while it slides */
+  }
+  
+  /* Animated text */
+  .offer-text {
+    position: absolute;
+    white-space: nowrap;
+    animation: slideLeftToRight 15s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+  }
+  
+  /* Keyframe for text sliding from left to right */
+  @keyframes slideLeftToRight {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 768px) {
+    .offer-banner {
+      font-size: 20px;
+      height: 70px;
+    }
+  
+    .offer-text {
+      font-size: 18px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .offer-banner {
+      font-size: 18px;
+      height: 60px;
+    }
+  
+    .offer-text {
+      font-size: 16px;
+    }
+  }
+  
 
+  .materials-items li button{
+    color: #825700;
+    font-size: 18px;
+    font-weight: bold;
 
+   
+  }
 
+  .materials-items li button:hover{
+    background-color: #faefd5;
+    border-radius: 12px;
+    
+    padding: 10px;
+  }
+
+  .materials-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    height: 320px;
+    
+  }

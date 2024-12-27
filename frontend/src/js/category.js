@@ -51,7 +51,6 @@ function displayProducts(products, newWindow) {
                 <div class="card-body">    
                     <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
                     <p>${product.description}</p>    
-                    <p>Quantity: ${product.quantity}</p>
                 </div>
                 
                 <div class="card-footer">
