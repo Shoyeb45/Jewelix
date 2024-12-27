@@ -45,3 +45,4 @@ document.querySelectorAll('.materials-items').forEach(button => {
         openMaterialWindow(selectedMaterial);
     });
 });
+
