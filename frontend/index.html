@@ -39,7 +39,7 @@
         <!-- Icons (Cart, User, etc.) -->
         <div class="icon-container">
           <a href="#"><span class="bi bi-bag"></span></a>
-          <a href="#"><span class="bi bi-person"></span></a>
+          <a href="/frontend/src/static/login.html"><span class="bi bi-person"></span></a>
           <a href="#"><span class="bi bi-cart"></span></a>
           <span class="menu-button bi bi-list" onclick="showSidebar()"></span>
         </div>
@@ -153,11 +153,11 @@
                 <div id="top-right">
                     <h1 class="materials">MATERIALS</h1>
                     <ul class="materials-items">
-                        <li>Gold Plated</li>
-                        <li>Silver Plated</li>
-                        <li>lab Grown Diamonds</li>
-                        <li>Pearls</li>
-                        <li>Stones</li>
+                        <li><button data-material="gold">Gold Plated</button></li>
+                        <li><button data-material="silver">Silver Plated</button></li>
+                        <li><button data-material="labGrownDiamond">lab Grown Diamonds</button></li>
+                        <li><button data-material="pearls">Pearls</button></li>
+                        <li><button data-material="stones">Stones</button></li>
                     </ul>
                 </div>
             </div>
@@ -169,55 +169,40 @@
                         <li>Bracelets</li>
                         <li>Necklaces</li>
                         <li>Earrings</li>
-                        <li>Watches</li>
                         <li>Anklets</li>
-                        <li>Toe Rings</li>
-                        
                     </ul>
                 </div>
                 <div id="bottom-right">
                     <div class="slideshow-container" id="categories-slideshow">
                         <!-- Slideshow for Categories -->
                         <div class="mySlides fade">
-                            <div class="numbertext">1 / 7</div>
+                            <div class="numbertext">1 / 5</div>
                             <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
                             <div class="text">Caption Text</div>
                         </div>
                     
                         <div class="mySlides fade">
-                            <div class="numbertext">2 / 7</div>
+                            <div class="numbertext">2 / 5</div>
                             <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
                             <div class="text">Caption Two</div>
                         </div>
                     
                         <div class="mySlides fade">
-                            <div class="numbertext">3 / 7</div>
+                            <div class="numbertext">3 / 5</div>
                             <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
                             <div class="text">Caption Three</div>
                         </div>
                     
                         <div class="mySlides fade">
-                            <div class="numbertext">4 / 7</div>
+                            <div class="numbertext">4 / 5</div>
                             <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
                             <div class="text">Caption Four</div>
                         </div>
                     
                         <div class="mySlides fade">
-                            <div class="numbertext">5 / 7</div>
+                            <div class="numbertext">5 / 5</div>
                             <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
                             <div class="text">Caption Five</div>
-                        </div>
-                    
-                        <div class="mySlides fade">
-                            <div class="numbertext">6 / 7</div>
-                            <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
-                            <div class="text">Caption Six</div>
-                        </div>
-                    
-                        <div class="mySlides fade">
-                            <div class="numbertext">7 / 7</div>
-                            <img src="/frontend/public/images/600 x 300.jpg" style="width:100%">
-                            <div class="text">Caption Seven</div>
                         </div>
                     
                         <!-- Next and previous buttons -->
@@ -231,8 +216,6 @@
                         <span class="dot" onclick="currentSlide(3, 'categories-slideshow')"></span>
                         <span class="dot" onclick="currentSlide(4, 'categories-slideshow')"></span>
                         <span class="dot" onclick="currentSlide(5, 'categories-slideshow')"></span>
-                        <span class="dot" onclick="currentSlide(6, 'categories-slideshow')"></span>
-                        <span class="dot" onclick="currentSlide(7, 'categories-slideshow')"></span>
                     </div>
                 </div>
             </div>
@@ -263,11 +246,7 @@
     </main>
 
     <script src="src/js/script.js"></script>
-    <script src="src/js/header.js"></script>
-<<<<<<< HEAD
-    <script src="src/js/productByCategory.js"></script>
-    <script src="src/js/material.js"></script>
-=======
->>>>>>> 611080364af9e191b678ce1b1dba83f6971fa101
+    <script src="src/js/header.js"></script> 
+    <script src="src/js/material.js"></script> 
 </body>
 </html>
