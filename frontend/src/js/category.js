@@ -36,19 +36,13 @@ async function getProductData(material, newWindow) {
 function displayProducts(products, newWindow) {
     const productContainer = newWindow.document.getElementById("product-container");
     productContainer.innerHTML = '';
+    
     products.forEach(product => {
 
         const productDiv = newWindow.document.createElement('div');
 
         productDiv.classList.add('product');
-        // let productImageUrl = "";
-        // for (let i = 0; i < 3; i++) {
-        //     const fileName = product.productImage[i].split('/').pop();
-        //     if (fileName === "1") {
-        //         productImageUrl = product.productImage[i];
-        //         break;
-        //     }
-        // }
+
 
         productDiv.innerHTML = `
 
@@ -72,7 +66,7 @@ function displayProducts(products, newWindow) {
     });
 }
 
-document.querySelectorAll('.categories-items').forEach(button => {
+document.querySelectorAll('.elem-category').forEach(button => {
     button.addEventListener('click', (event) => {
         const selectedMaterial = event.target.getAttribute('data-material');
         openMaterialWindow(selectedMaterial);
