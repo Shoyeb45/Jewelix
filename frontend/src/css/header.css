@@ -11,7 +11,7 @@ body {
 
 /* Navigation Bar */
 nav {
-    background-color: #f1daa3;
+    background-color: #f4e2b8;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     display: flex;
@@ -43,14 +43,14 @@ header{
 }
 
 .nav-links li a:hover {
-    color: #FFD700; /* Gold color on hover */
+    color: #4f3402; /* Gold color on hover */
 }
 
 /* Search bar styling */
 .search-container {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: rgb(253, 251, 247);
     border-radius: 20px;
     padding: 5px 10px;
 }
@@ -60,6 +60,8 @@ header{
     outline: none;
     font-size: 16px;
     width: 200px;
+    background-color: rgb(253, 251, 247);
+    
     margin-left: 5px;
 }
 
@@ -89,7 +91,7 @@ header{
 }
 
 .icon-container a:hover {
-    color: #FFD700;
+    color: #4f3402;
 }
 
 /* Menu Button for mobile screens */
@@ -107,11 +109,12 @@ header{
     right: 0;
     width: 250px;
     height: 100vh;
-    background-color: #7373B9;
+    background-color: #fae3aa;
     box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     padding: 20px;
     z-index: 999;
+    
 }
 
 .sidebar ul {
@@ -125,7 +128,7 @@ header{
 
 .sidebar ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(138, 90, 1);
     font-weight: 600;
 }
 
