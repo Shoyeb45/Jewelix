@@ -38,13 +38,9 @@ function showSlides(n, slideshowId) {
     }
 
     slides[slideIndexes[slideshowId] - 1].style.display = "block";
-<<<<<<< HEAD
-    dots[slideIndexes[slideshowId] - 1].className += " active";
-=======
     if (dots.length > 0) {
         dots[slideIndexes[slideshowId] - 1].className += " active";
     }
->>>>>>> 87dbe5fcac4adebbe3b04c8ac8afec6364465f2c
 }
 
 function autoSlide(slideshowId) {
