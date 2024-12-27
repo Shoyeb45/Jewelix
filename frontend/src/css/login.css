@@ -1,0 +1,144 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D4AF37;
+    
+}
+
+#background {
+    /* width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%; */
+}
+
+.background .shape {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.shape:first-child {
+    background: linear-gradient(#1845ad, #23a2f6);
+    left: 400px;
+    top: 20px;
+}
+
+.shape:last-child {
+    background: linear-gradient(#ff512f, #f09819);
+    right: 10vh;
+    bottom: -7vh;
+}
+
+form {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    height: 520px;
+    width: 400px;
+    left: 40%;
+    top: 20%;
+    position: absolute;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 40px rgba(8, 7, 16, 0.783);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.6px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 50px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+button {
+    color: black;
+    height: 50px;
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.social {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between; /* Ensure space between buttons */
+    width: 100%; /* Make social section full width */
+}
+
+.social div {
+    display: inline-block;
+    height: 40px;
+    width: 48%; /* Adjust width to fit buttons within form */
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 5px 10px 10px 5px;
+    margin-right: 20px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#go {
+    justify-content: center;
+    align-items: center;
+}
+
+#you {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Additional styling for Forgot Password and Create Account */
+.forgot-password, .create-account {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password a, .create-account a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover, .create-account a:hover {
+    text-decoration: underline;
+}
