@@ -34,7 +34,7 @@ function showSlides(n, slideshowId) {
 
     // Show the current slide
     slides[slideIndexes[slideshowId] - 1].style.display = "block";
-    dots[slideIndexes[slideshowId] - 1].class += " active";
+    dots[slideIndexes[slideshowId] - 1].className += " active";
 }
 
 // Automatically change the slide every 3 seconds (3000ms)
