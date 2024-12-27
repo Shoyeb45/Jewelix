@@ -1,7 +1,3 @@
-// Two ways to implent this function, the function will take a function as an argument and we need to execute it asynchronously.
-
-
-// Way-1
 /**
  * Wrapper function to execute another function
  * @param {*} requestHandler: Function to execute asynchrounously
@@ -22,20 +18,6 @@ const asyncHandler = (requestHandler) => {
 }
 
 
-// Way-2 , Using promises
 
-/**
- * 
- * @param {*} requestHandler : function that needs to be executed
- */
-// const asyncHandler = (requestHandler) => {
-//     (req, res, next) => {
-//         Promise
-//             .resolve(requestHandler(req, res, next))
-//             .catch((error) => {
-//                 next(error);
-//             });
-//     }
-// };
 
 export { asyncHandler };
