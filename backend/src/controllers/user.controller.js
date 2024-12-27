@@ -190,10 +190,12 @@ const refreshAccessToken = asyncHandler (async (req, res) => {
         // Get new refresh and access tokens
         const {newRefreshToken, accessToken} = await generateRefreshAndAccessToken(user._id);
 
+        // res.redirect("/");
         return res
             .status(200)
             .cookie("accessToken", accessToken)
             .cookie("refreshToken", newRefreshToken)
+            .redirect("/")
             .json(
                 new ApiResponse(
                     200,

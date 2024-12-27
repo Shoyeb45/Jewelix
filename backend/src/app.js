@@ -26,6 +26,7 @@ app.use(express.json({
     limit: "20kb"
 }));
 
+
 app.use(bodyParser.json());
 // When recieving data through URL, url encodes data in different format, so while receiving it, we need to tell app, the it is url encoded
 app.use(express.urlencoded({
@@ -34,8 +35,7 @@ app.use(express.urlencoded({
 }));
 
 // For static pages and files - most of time, we'll use public folder to store the static files
-app.use(express.static("public"));
-
+app.use(express.static("./../../frontend/src/static"));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
