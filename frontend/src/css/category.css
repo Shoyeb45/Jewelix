@@ -64,7 +64,7 @@ h1 {
 
 /* Button styles */
 button {
-    background-color: #ff4081;
+    background-color: #71b0e7;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ button {
 }
 
 button:hover {
-    background-color: #e0356d;
+    background-color: #5735e0;
 }
 
 /* Responsive design */
