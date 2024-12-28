@@ -62,7 +62,7 @@ function displayProducts(products, newWindow) {
                     <button>Add to cart</button>
                 </dib>
                     
-                <h2><a href="./src/static/product-details.html?productId=${product._id}">${product.productName}</a></h2>
+                <h2><a href="./src/static/product-details.html?productId=${product._id}" target="_blank">${product.productName}</a></h2>
             </div>
         `;
         productContainer.appendChild(productDiv);
