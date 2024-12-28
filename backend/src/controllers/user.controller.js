@@ -209,10 +209,25 @@ const refreshAccessToken = asyncHandler (async (req, res) => {
 
 });
 
+const isLoggedIn = asyncHandler(async (req, res, next) => {
+    try {
+        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
+        if (!token) {
+            return res.status(401).json({ isLoggedIn: false, message: "User is not logged in" });
+        }
+
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        return res.status(200).json({ isLoggedIn: true, userId: decoded._id });
+    } catch (error) {
+        return res.status(401).json({ isLoggedIn: false, message: "User is not logged in", error: error.message });
+    }
+});
+
 // export functions
 export { 
     registerUser, 
     loginUser,
     logoutUser,
-    refreshAccessToken
+    refreshAccessToken,
+    isLoggedIn
 }; 

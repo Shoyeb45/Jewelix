@@ -1,3 +1,25 @@
+async function checkLoginStatus() {
+    try {
+        const response = await fetch('http://localhost:4000/api/auth/isLoggedIn', {
+            method: 'GET',
+            credentials: 'include' // Include cookies for cross-origin requests
+        });
+
+        const data = await response.json();
+        if (data.isLoggedIn) {
+            // User is logged in: Hide the login button
+            document.getElementById("user").style.display = "none";
+        } else {
+            // User is not logged in: Show the login button
+            document.getElementById("user").style.display = "block";
+        }
+    } catch (error) {
+        console.error("Error checking login status:", error);
+    }
+}
+
+window.onload = checkLoginStatus;
+
 let slideIndexes = {
     "material-slideshow": 1,
     "categories-slideshow": 1

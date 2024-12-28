@@ -1,4 +1,4 @@
-import express, { application } from "express";
+import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
@@ -9,8 +9,8 @@ const app = express();
 // Configuring CORS
 app.use(
     cors({
-            origin: process.env.CORS_ORIGIN,
-            credentials: true
+        origin: process.env.CORS_ORIGIN,
+        credentials: true
     })
 );
 
@@ -54,11 +54,13 @@ app.get("/", (req, res) => {
 // ------------ Routes -----------------
 import userRouter from "./routes/user.route.js";
 import productRouter from "./routes/product.route.js";
+import authLogin from "./routes/auth.route.js";
 
 // User api
 app.use("/api/v1/user", userRouter);
 
 // product admin api
 app.use("/api/v1/product", productRouter);
+app.use("/api/auth", authLogin);
 
 export default app;
