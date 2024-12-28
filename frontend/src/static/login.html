@@ -16,13 +16,13 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form id="loginForm">
         <h3>Login Here</h3>
         <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username">
+        <input type="text" placeholder="Email or Phone" id="username" name="userName">
         
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password">
         
         <button>Log In</button>
         
@@ -31,9 +31,10 @@
         </div> -->
 
         <div class="create-account">
-            <p>Don't have an account? <a href="/frontend/src/static/signup.html">Create one here</a></p>
+            <p>Don't have an account? <a href="./frontend/src/static/signup.html">Create one here</a></p>
         </div>
         <script src="./../js/login.js"></script>
     </form>
+    <p id="errorMessage" style="color: red; text-align: center;"></p>
 </body>
 </html>

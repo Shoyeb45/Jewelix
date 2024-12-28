@@ -24,7 +24,7 @@ async function getProductData(material, newWindow) {
         const productData = await response.json();
         if (productData && productData.length > 0) {
             displayProducts(productData, newWindow);
-        } else {
+        } else {            
             newWindow.document.getElementById('product-container').innerHTML = 'No products available for this material.';
         }
     } catch (err) {
@@ -42,6 +42,10 @@ function displayProducts(products, newWindow) {
 
         productDiv.classList.add('product');
 
+        // productDiv.addEventListener('click', () => {
+        //     // Open the product details page in a new window or tab
+        //     window.open(`/product-details.html?productId=${product._id}`, '_blank');
+        // });
 
         productDiv.innerHTML = `
 
@@ -50,7 +54,7 @@ function displayProducts(products, newWindow) {
                     <img src='${product.productImage[0]}' class="product-img">
                 </div>
                 <div class="card-body">    
-                    <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
+                    <p class="price">₹${product.price} <strike>₹${product.price + 1000}</strike></p>
                     <p>${product.description}</p>    
                 </div>
                 
@@ -58,7 +62,7 @@ function displayProducts(products, newWindow) {
                     <button>Add to cart</button>
                 </dib>
                     
-                <h2>${product.productName}</h2>
+                <h2><a href="./src/static/product-details.html?productId=${product._id}">${product.productName}</a></h2>
             </div>
         `;
         productContainer.appendChild(productDiv);

@@ -4,6 +4,8 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { uploadOnCloudinary } from "../utils/uploadOnCloudinary.js";
 import { ApiError } from "../utils/ApiError.js";
 import { Category } from "../models/categories.model.js";
+import mongoose  from "mongoose";
+
 
 export const sendData = asyncHandler( async (req, res) => {
     try {
@@ -95,3 +97,25 @@ export const getProductOfCategory = asyncHandler ( async (req, res) => {
         res.status(500).send({ error: 'Server error' });
     }
 });
+
+
+
+export const getIndividualProductData = asyncHandler (async (req, res) => {
+    const productId = req.params.id;
+
+    const newObjectId = new mongoose.Types.ObjectId(productId);
+    console.log(newObjectId);
+    
+    try {
+        const product = await Product.findOne({_id:newObjectId}); 
+        console.log(product);
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        res.json(product);  
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+}) 

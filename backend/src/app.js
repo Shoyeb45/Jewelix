@@ -21,7 +21,12 @@ const __dirname = path.dirname(__filename);
 // Linking frontend
 app.use(express.static(path.join(__dirname, "./../../frontend")));
 
-// To limit the size of request object: no need of parser
+
+// Fallback route for index.html in case of client-side routing
+// app.get("/*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./../../frontend/index.html"));
+// });
+
 app.use(express.json({
     limit: "20kb"
 }));
@@ -35,7 +40,7 @@ app.use(express.urlencoded({
 }));
 
 // For static pages and files - most of time, we'll use public folder to store the static files
-app.use(express.static("./../../frontend/src/static"));
+app.use(express.static(path.join(__dirname, "./../../frontend")));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
