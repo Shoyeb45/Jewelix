@@ -2,6 +2,7 @@ import { ApiError } from "./../utils/ApiError.js";
 import { User } from "./../models/users.model.js";
 import { asyncHandler } from "./../utils/asyncHandler.js"
 import jwt from "jsonwebtoken";
+
 /**
  * @author Shoyeb Ansari
  * Function to  verify token at current session
@@ -36,24 +37,3 @@ export const verifyJWT = asyncHandler (async (req, _, next) => {
 });
 
 
-
-export const isLoggedIn = asyncHandler(async (req, res, next) => {
-    try {
-        // Get token from cookies or Authorization header
-        const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
-
-        // If no token is present, the user is not logged in
-        if (!token) {
-            return res.status(401).json({ message: "User is not logged in" });
-        }
-
-        // Verify the token
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-
-        // If the token is valid, consider the user logged in
-        return res.status(200).json({ message: "User is logged in", userId: decoded._id });
-    } catch (error) {
-        // Handle invalid or expired token
-        return res.status(401).json({ message: "User is not logged in", error: error.message });
-    }
-});
