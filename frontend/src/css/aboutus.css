@@ -9,13 +9,13 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f5dcb1;
+    color: #684900;
 }
 
 /* Section Styles */
 .about-us {
-    background-color: #fff;
+    background-color: #faeacc;
     padding: 40px 20px;
     text-align: center;
 }
@@ -35,9 +35,11 @@ body {
 .content {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 30px;
+   
 }
 
 .image img {
@@ -48,15 +50,17 @@ body {
 }
 
 .text {
-    max-width: 500px;
+    max-width: 100vh;
     margin-left: 20px;
     text-align: left;
+    align-items: center;
 }
 
 .text p {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #555;
+    color: #6a4a01;
+
 }
 
 .values {
@@ -64,6 +68,9 @@ body {
     text-align: left;
     max-width: 800px;
     margin: 40px auto;
+  
+   
+    text-align: center;
 }
 
 .values h2 {
