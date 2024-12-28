@@ -7,7 +7,6 @@ function openMaterialWindow(material) {
                 <link rel="stylesheet" type="text/css" href="./src/css/category.css">
             </head>
             <body>
-                <h1>Loading ${material.charAt(0).toUpperCase() + material.slice(1)} Products...</h1>
                 <div id="product-container"></div>
             </body>
         </html>
@@ -25,7 +24,7 @@ async function getProductData(material, newWindow) {
         const productData = await response.json();
         if (productData && productData.length > 0) {
             displayProducts(productData, newWindow);
-        } else {
+        } else {            
             newWindow.document.getElementById('product-container').innerHTML = 'No products available for this material.';
         }
     } catch (err) {
@@ -43,7 +42,7 @@ function displayProducts(products, newWindow) {
 
         productDiv.classList.add('product');
 
-
+        
         productDiv.innerHTML = `
 
             <div class="card">
@@ -51,7 +50,7 @@ function displayProducts(products, newWindow) {
                     <img src='${product.productImage[0]}' class="product-img">
                 </div>
                 <div class="card-body">    
-                    <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
+                    <p class="price">₹${product.price} <strike>₹${product.price + 1000}</strike></p>
                     <p>${product.description}</p>    
                 </div>
                 
