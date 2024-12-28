@@ -25,7 +25,7 @@ async function getProductData(material, newWindow) {
         const productData = await response.json();
         if (productData && productData.length > 0) {
             displayProducts(productData, newWindow);
-        } else {
+        } else {            
             newWindow.document.getElementById('product-container').innerHTML = 'No products available for this material.';
         }
     } catch (err) {
