@@ -50,16 +50,18 @@ body {
 }
 
 .text {
-    max-width: 100vh;
+    max-width: 100%;
     margin-left: 20px;
     text-align: left;
     align-items: center;
+   margin-top: 40px;
 }
 
 .text p {
     margin-bottom: 15px;
     font-size: 18px;
     color: #6a4a01;
+   
 
 }
 
