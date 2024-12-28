@@ -3,18 +3,14 @@ function openMaterialWindow(material) {
     const htmlContent = `
         <html>
             <head>
-                <title>${material.charAt(0).toUpperCase() + material.slice(1)} Products</title>
                 <link rel="stylesheet" type="text/css" href="./src/css/category.css">
             </head>
             <body>
-                <h1>Loading ${material.charAt(0).toUpperCase() + material.slice(1)} Products...</h1>
                 <div id="product-container"></div>
             </body>
         </html>
     `;
     newWindow.document.write(htmlContent);
-
-    console.log(document.getElementsByTagName("link"));
     
     getProductData(material, newWindow);
 }

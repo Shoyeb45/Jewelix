@@ -42,7 +42,11 @@ function displayProducts(products, newWindow) {
 
         productDiv.classList.add('product');
 
-        
+        // productDiv.addEventListener('click', () => {
+        //     // Open the product details page in a new window or tab
+        //     window.open(`/product-details.html?productId=${product._id}`, '_blank');
+        // });
+
         productDiv.innerHTML = `
 
             <div class="card">
@@ -58,7 +62,7 @@ function displayProducts(products, newWindow) {
                     <button>Add to cart</button>
                 </dib>
                     
-                <h2>${product.productName}</h2>
+                <h2><a href="./src/static/product-details.html?productId=${product._id}" target="_blank">${product.productName}</a></h2>
             </div>
         `;
         productContainer.appendChild(productDiv);
