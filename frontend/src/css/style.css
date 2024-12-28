@@ -63,7 +63,7 @@ nav{
     padding: 10px;
     color: #96681eeb;
     border: 2px rgb(144, 73, 1) solid;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 
@@ -80,7 +80,7 @@ nav{
     height: 400px;
     background-color:  #f7e3b4;
     color: #96681eeb;
-    border-radius: 30px;
+    border-radius: 10px;
     border: 2px rgb(144, 73, 1) solid;
 
     
@@ -271,6 +271,7 @@ footer {
 .footerBottom p {
    background-color: #cea668eb;
     color:#523102eb; /* Set text color to black */
+    padding: 20px;
 }
 .designer {
     opacity: 0.7;
@@ -649,3 +650,7 @@ footer {
   .numbertext{
     border-radius: 30px;
   }
+  
+.search-container .bi-search{
+    color:#f0bb52e6
+}
