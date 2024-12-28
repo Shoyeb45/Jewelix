@@ -7,7 +7,6 @@ function openMaterialWindow(material) {
                 <link rel="stylesheet" type="text/css" href="./src/css/category.css">
             </head>
             <body>
-                <h1>Loading ${material.charAt(0).toUpperCase() + material.slice(1)} Products...</h1>
                 <div id="product-container"></div>
             </body>
         </html>
@@ -51,7 +50,7 @@ function displayProducts(products, newWindow) {
                     <img src='${product.productImage[0]}' class="product-img">
                 </div>
                 <div class="card-body">    
-                    <p>₹${product.price} <strike>${product.price + 1000}</strike></p>
+                    <p class="price">₹${product.price} <strike>₹${product.price + 1000}</strike></p>
                     <p>${product.description}</p>    
                 </div>
                 

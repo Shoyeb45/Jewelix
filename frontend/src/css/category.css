@@ -20,7 +20,7 @@ h1 {
 
 /* Individual product styles */
 .product {
-    background: #fff;
+    background: #efe0c1;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -37,13 +37,22 @@ h1 {
 
 .product h2 {
     font-size: 1.5rem;
-    color: #555;
+    color: #9a6b04;
     margin-bottom: 10px;
 }
 
 .product p {
+    
     font-size: 1rem;
     margin: 5px 0;
+    font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height:23px ;
+    color: #4d3c0d;
+}
+
+.card-body .price{
+    font-size: 20px;
+    color: rgb(34, 20, 4);
 }
 
 /* Product images container */
@@ -64,7 +73,7 @@ h1 {
 
 /* Button styles */
 button {
-    background-color: #ff4081;
+    background-color: #b57b00;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -75,7 +84,7 @@ button {
 }
 
 button:hover {
-    background-color: #e0356d;
+    background-color: #745a13;
 }
 
 /* Responsive design */
