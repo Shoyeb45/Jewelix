@@ -20,6 +20,7 @@ nav{
 .twond{
     
     height: 500px;
+    width: 100%;
    
 }
 #main {
@@ -58,7 +59,7 @@ nav{
 #top-right {
     width: 30%;
     height: 400px;
-    background-color: #f1daa3;
+    background-color: #f7e3b4;
     padding: 10px;
     color: #96681eeb;
     border: 2px rgb(144, 73, 1) solid;
@@ -77,7 +78,7 @@ nav{
 #bottom-left {
     width: 30%;
     height: 400px;
-    background-color: #f1daa3;
+    background-color:  #f7e3b4;
     color: #96681eeb;
     border-radius: 30px;
     border: 2px rgb(144, 73, 1) solid;
@@ -367,6 +368,7 @@ footer {
 .first{
    
     height: 500px;
+    width: 100%;
    
    
 }
