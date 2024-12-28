@@ -43,7 +43,7 @@ function displayProducts(products, newWindow) {
 
         productDiv.classList.add('product');
 
-
+        
         productDiv.innerHTML = `
 
             <div class="card">

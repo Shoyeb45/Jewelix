@@ -1,17 +1,3 @@
-function checkLoginStatus() {
-    const token = getCookie("accessToken"); // Get the accessToken cookie
-
-    if (token) {
-        // If token exists, user is logged in
-        document.getElementById("user").style.display = "none";
-        // document.getElementById("profileIcon").style.display = "block";
-    } else {
-        // If no token, user is not logged in
-        document.getElementById("user").style.display = "block";
-        // document.getElementById("profileIcon").style.display = "none";
-    }
-}
-
 let slideIndexes = {
     "material-slideshow": 1,
     "categories-slideshow": 1

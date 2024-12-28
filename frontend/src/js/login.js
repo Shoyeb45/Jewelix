@@ -20,7 +20,6 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         if (response.ok) {
             // Redirect to home page
             alert("Successfully login");
-            window.location.href = 'frontend/index.html';
         } else {
             const errorData = await response.json();
             document.getElementById('errorMessage').textContent = errorData.message || 'Login failed. Please try again.';
