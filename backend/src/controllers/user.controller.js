@@ -3,6 +3,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/users.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
+import { cookieOptions } from "../constant.js";
 
 
 /**
@@ -101,15 +102,11 @@ const loginUser = asyncHandler ( async (req, res) => {
     const {refreshToken, accessToken} = await generateRefreshAndAccessToken(user._id);
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
 
-    const options = {
-        httpOnly: true,
-        secure: true      
-    };
-    
+
     return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
+    .cookie("accessToken", accessToken, cookieOptions)
+    .cookie("refreshToken", refreshToken, cookieOptions)
     .json(
         new ApiResponse(
             200, 
@@ -128,26 +125,25 @@ const loginUser = asyncHandler ( async (req, res) => {
 */
 const logoutUser = asyncHandler (async (req, res) => {
     await User.findByIdAndUpdate(  // this method will find and update the databse
-        req.user._id,
-        {
-            $set: { // set is operator which allows us to set the field
-                refreshToken: undefined
+        await User.findByIdAndUpdate(
+            req.user._id,
+            {
+                $unset: {
+                    refreshToken: 1 // this removes the field from document
+                }
+            },
+            {
+                new: true
             }
-        },
-        {
-            new: true   // return value will be update 
-        }
+        )
     );
     
-    const options = {
-        httpOnly: true,
-        secure: true      
-    };
+
     
     return res
         .status(200)
-        .clearCookie("accessToken", options)
-        .clearCookie("refreshToken", options)
+        .clearCookie("accessToken", cookieOptions)
+        .clearCookie("refreshToken", cookieOptions)
         .json(new ApiResponse(200, {}, "User logged Out"));
 });
 
@@ -182,10 +178,7 @@ const refreshAccessToken = asyncHandler (async (req, res) => {
             throw new ApiError(401, "Refresh token is expired or used");
         }
         
-        const option = {
-            httpOnly: true,
-            secure: true
-        };
+ 
         
         // Get new refresh and access tokens
         const {newRefreshToken, accessToken} = await generateRefreshAndAccessToken(user._id);
@@ -193,8 +186,8 @@ const refreshAccessToken = asyncHandler (async (req, res) => {
         // res.redirect("/");
         return res
             .status(200)
-            .cookie("accessToken", accessToken)
-            .cookie("refreshToken", newRefreshToken)
+            .cookie("accessToken", accessToken, cookieOptions)
+            .cookie("refreshToken", newRefreshToken, cookieOptions)
             .redirect("/")
             .json(
                 new ApiResponse(
