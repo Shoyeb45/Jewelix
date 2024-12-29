@@ -46,7 +46,6 @@ import authLogin from "./routes/auth.route.js";
 // User api
 app.use("/api/v1/user", userRouter);
 
-// product admin api
 app.use("/api/v1/product", productRouter);
 
 app.use("/api/auth", authLogin);

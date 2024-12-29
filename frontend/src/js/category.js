@@ -42,10 +42,6 @@ function displayProducts(products, newWindow) {
 
         productDiv.classList.add('product');
 
-        // productDiv.addEventListener('click', () => {
-        //     // Open the product details page in a new window or tab
-        //     window.open(`/product-details.html?productId=${product._id}`, '_blank');
-        // });
 
         productDiv.innerHTML = `
 

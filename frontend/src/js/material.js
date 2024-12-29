@@ -1,4 +1,4 @@
-function openMaterialWindow(material) {
+function openMaterialWindow2(material) {
     const newWindow = window.open('', '_blank');
     const htmlContent = `
         <html>
@@ -12,10 +12,10 @@ function openMaterialWindow(material) {
     `;
     newWindow.document.write(htmlContent);
     
-    getProductData(material, newWindow);
+    getProductDataMaterial(material, newWindow);
 }
 
-async function getProductData(material, newWindow) {
+async function getProductDataMaterial(material, newWindow) {
     try {
         const response = await fetch(`http://localhost:4000/api/v1/product/getProductOfMaterial?typeOfMaterial=${material}`);
         const productData = await response.json();
@@ -66,7 +66,7 @@ function displayProducts(products, newWindow) {
 document.querySelectorAll('.elem-material').forEach(button => {
     button.addEventListener('click', (event) => {
         const selectedMaterial = event.target.getAttribute('data-material');
-        openMaterialWindow(selectedMaterial);
+        openMaterialWindow2(selectedMaterial);
     });
 });
 
