@@ -14,7 +14,6 @@ async function fetchProductDetails() {
     try {
         const response = await fetch(`http://localhost:4000/api/v1/product/${param1}?${param2}=${urlParams.get(param2)}`);
         const productData = await response.json();
-        console.log(productData);
 
         if (productData) {
             updateProductPage(productData, toProperCase(urlParams.get(param2)));
@@ -39,6 +38,9 @@ function updateProductPage(products, productType) {
     const productContainer =  document.getElementById("product-container");
     productContainer.innerHTML = '';
     
+    let productId = [];
+    let productNames = [];
+
     products.forEach(product => {
 
         const productDiv = document.createElement('div');
@@ -58,17 +60,33 @@ function updateProductPage(products, productType) {
                 </div>
                 
                 <div class="card-footer">
-                    <button>Add to cart</button>
+                    <button id="cart-btn">Add to cart</button>
                 </dib>
                     
                 <h2><a href="../static/product-details.html?productId=${product._id}" target="_blank">${product.productName}</a></h2>
             </div>
         `;
+
+        productId.push(product._id);
+        
+        productNames.push(product.productName);
+
         productContainer.appendChild(productDiv);
     });
+    
+    let btns = document.querySelectorAll("#cart-btn");
+    
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", (event) => {
+            // fetch api
+        });
+    }
+    console.log(btns)   ;
+    
 }
 
 function toProperCase(str) {
     if (!str) return ""; // Handle empty strings
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
+

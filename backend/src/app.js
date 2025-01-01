@@ -2,12 +2,13 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { cookieOptions } from "./constant.js";
 const app = express();
 
 // Configuring CORS
 app.use(
     cors({
-        origin: process.env.CORS_ORIGIN,
+        origin: "http://127.0.0.1:5502",
         credentials: true
     })
 );
@@ -30,9 +31,10 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-    res.send("Working fine");
+    res
+    .cookie("Some", "value of cookie", cookieOptions)
+    .send("Working fine");
 });
-
 
 
 
@@ -41,12 +43,13 @@ app.get("/", (req, res) => {
 import userRouter from "./routes/user.route.js";
 import productRouter from "./routes/product.route.js";
 import authLogin from "./routes/auth.route.js";
+import cartRouter from "./routes/cart.route.js";
 
 
 // User api
 app.use("/api/v1/user", userRouter);
-
 app.use("/api/v1/product", productRouter);
+app.use("/api/v1/cart", cartRouter);
 
 app.use("/api/auth", authLogin);
 
