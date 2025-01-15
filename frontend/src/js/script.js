@@ -1,8 +1,11 @@
 async function checkLoginStatus() {
     try {
-        const response = await fetch('http://localhost:4000/api/auth/isLoggedIn', {
+        const response = await fetch('https://jewlix.up.railway.app/api/auth/isLoggedIn', {
             method: 'GET',
-            credentials: 'include' // Include cookies for cross-origin requests
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: "include"
         });
 
         const data = await response.json();
@@ -18,7 +21,7 @@ async function checkLoginStatus() {
     }
 }
 
-window.onload = checkLoginStatus;
+checkLoginStatus();
 
 let slideIndexes = {
     "material-slideshow": 1,

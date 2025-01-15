@@ -12,8 +12,9 @@ async function fetchProductDetails() {
     }
 
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/product/${param1}?${param2}=${urlParams.get(param2)}`);
+        const response = await fetch(`https://jewlix.up.railway.app/api/v1/product/${param1}?${param2}=${urlParams.get(param2)}`);
         const productData = await response.json();
+        console.log(productData);
 
         if (productData) {
             updateProductPage(productData, toProperCase(urlParams.get(param2)));
@@ -30,7 +31,7 @@ fetchProductDetails();
 
 function updateProductPage(products, productType) {
     
-    document.getElementsByTagName("title").innerHTML = `${productType}: Buy ${productType} Jewellery`
+    document.querySelector("title").innerHTML = `${productType}: Buy ${productType} Jewellery`
     document.getElementById("current").innerHTML = `${productType}`
     document.getElementById("product-title").innerHTML = `${productType}`
     document.getElementById("quantity").innerHTML = `(${products.length} results)`
@@ -38,9 +39,6 @@ function updateProductPage(products, productType) {
     const productContainer =  document.getElementById("product-container");
     productContainer.innerHTML = '';
     
-    let productId = [];
-    let productNames = [];
-
     products.forEach(product => {
 
         const productDiv = document.createElement('div');
@@ -52,7 +50,7 @@ function updateProductPage(products, productType) {
 
             <div class="card">
                 <div class="card-header">    
-                    <img src='${product.productImage[0]}' class="product-img">
+                    <a href="../static/product-details.html?productId=${product._id}" target="_blank"><img src='${product.productImage[0]}' class="product-img"></a>
                 </div>
                 <div class="card-body">    
                     <p class="price">₹${product.price} <strike>₹${product.price + 1000}</strike></p>
@@ -60,33 +58,17 @@ function updateProductPage(products, productType) {
                 </div>
                 
                 <div class="card-footer">
-                    <button id="cart-btn">Add to cart</button>
+                    <button>Add to cart</button>
                 </dib>
                     
                 <h2><a href="../static/product-details.html?productId=${product._id}" target="_blank">${product.productName}</a></h2>
             </div>
         `;
-
-        productId.push(product._id);
-        
-        productNames.push(product.productName);
-
         productContainer.appendChild(productDiv);
     });
-    
-    let btns = document.querySelectorAll("#cart-btn");
-    
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", (event) => {
-            // fetch api
-        });
-    }
-    console.log(btns)   ;
-    
 }
 
 function toProperCase(str) {
     if (!str) return ""; // Handle empty strings
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
-

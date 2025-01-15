@@ -1,6 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetchProductDetails();
+const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
 });
+
+function slideImage() {
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
 
 async function fetchProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -12,12 +28,9 @@ async function fetchProductDetails() {
     }
 
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/product/${productId}`);
-        if (!response.ok) {
-            throw new Error(`Error: ${response.statusText}`);
-        }
-
+        const response = await fetch(`https://jewlix.up.railway.app/api/v1/product/${productId}`);
         const productData = await response.json();
+
         if (productData) {
             updateProductPage(productData);
         } else {
@@ -25,40 +38,27 @@ async function fetchProductDetails() {
         }
     } catch (err) {
         console.error('Error fetching product data:', err);
-        document.getElementById('product-details-container').innerHTML = 'Error fetching data.';
+        document.getElementById('product-details').innerHTML = 'Error fetching data.';
     }
 }
 
 function updateProductPage(product) {
-    const nameElement = document.getElementById('name-of-product');
-    const priceElement = document.getElementById('price');
-    const descriptionElement = document.getElementById('description');
-    const categoryElement = document.getElementById('category');
 
+    document.querySelector("title").innerHTML = `${product.productName}`
+    document.getElementById("current").innerHTML = `${product.productName}`
+
+    document.getElementById('name-of-product').innerHTML = product.productName;
     
+    document.getElementById('price').innerHTML = `₹${product.price}`;
+    document.getElementById('description').innerHTML = product.description;
+    document.getElementById("category").innerHTML = product.category;
 
-    nameElement.textContent = product.productName;
-    priceElement.textContent = `₹${product.price}`;
-    descriptionElement.textContent = product.description;
-    categoryElement.textContent = product.category;
-    const imageElement = document.getElementById("big-img");
-
-    imageElement.setAttribute("src", product.productImage[0]);
-
-    const stockElement = document.getElementById("stock");
-
+    document.getElementById("big-img").setAttribute("src", product.productImage[0]);
     if (product.quantity === 0) {
-        stockElement.innerHTML = "<strike>Out Of Stock</strike>";
-        stockElement.style.color = "red";
-    } else {
-        stockElement.innerHTML = "In Stock";
-        stockElement.style.color = "green";
-    }
-
-    for (let i = 0; i < 3; i++) {
-        const img = document.getElementById("img-" + i);
-        img.setAttribute("src", product.productImage[i]);  
-        document.getElementById("img-t-" + i).setAttribute("src", product.productImage[i]);  
-        // document.getElementById("link-" + i).setAttribute("href", product.productImage[i])
+        document.getElementById("stock").innerHTML = "<strike>Out Of Stock</strike>";
+        document.getElementById("stock").style.color = "red";
     }
 }
+
+// Call the fetch function when the page loads
+window.onload = fetchProductDetails;

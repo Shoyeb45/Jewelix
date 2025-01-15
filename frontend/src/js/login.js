@@ -9,18 +9,19 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
 
 
     try {
-        const response = await fetch('http://localhost:4000/api/v1/user/login', {
+        const response = await fetch('https://jewlix.up.railway.app/api/v1/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: "include",
             body: JSON.stringify(data),
+            credentials: 'include'
         });
 
         if (response.ok) {
             // Redirect to home page
-            alert("Successfully login");
+            alert("Successfully login\nRedirecting to home page...");
+            window.location.href = './../../index.html';
         } else {
             const errorData = await response.json();
             document.getElementById('errorMessage').textContent = errorData.message || 'Login failed. Please try again.';
