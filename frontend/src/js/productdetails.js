@@ -28,7 +28,7 @@ async function fetchProductDetails() {
     }
 
     try {
-        const response = await fetch(`https://jewlix.up.railway.app/api/v1/product/${productId}`);
+        const response = await fetch(`https://jewelix.up.railway.app/api/v1/product/${productId}`);
         const productData = await response.json();
 
         if (productData) {
